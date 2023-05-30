@@ -44,9 +44,17 @@ window.addEventListener('DOMContentLoaded', () => {
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
-    
-    
-  ];
+    {
+      q: 'What is the biggest airport in the world?',
+      o: ['Dubai', 'oman', 'Doha', 'America'],
+      a: 0,
+    },
+    {
+      q: 'What is the biggest state in Australia?',
+      o: ['Queensland', 'South Australia', 'Western Australia','Victoria'],
+      a: 2,
+    }
+    ];
 
   // function to Display the quiz questions and answers from the object
   const displayQuiz = () => {
