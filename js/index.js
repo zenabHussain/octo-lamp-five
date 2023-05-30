@@ -40,10 +40,12 @@ window.addEventListener('DOMContentLoaded', () => {
       a: 3,
     },
     {
-      q: 'What is the capital of Australia',
+      q: 'What is the capital of Australia ?',
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+    
+    
   ];
 
   // function to Display the quiz questions and answers from the object
@@ -63,6 +65,9 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+
+
+  
   // Calculate the score
   const calculateScore = () => {
     let score = 0;
@@ -74,17 +79,19 @@ window.addEventListener('DOMContentLoaded', () => {
         liElement = document.querySelector('#' + li);
         radioElement = document.querySelector('#' + r);
 
-        if (quizItem.a == i) {
-          //change background color of li element here
-        }
+      
 
-        if (radioElement.checked) {
-          // code for task 1 goes here
+        if (radioElement.checked&& quizItem.a == i) {
+          liElement.style.backgroundColor="green";
+          score++;
         }
       }
     });
+    document.getElementById("btnSubmit").innerHTML=score;
   };
 
   // call the displayQuiz function
   displayQuiz();
+ document.getElementById("btnSubmit").addEventListener('click',calculateScore);
 });
+
