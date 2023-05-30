@@ -25,6 +25,41 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#quizBlock').style.display = 'block';
     start.style.display = 'none';
   });
+
+  function clearResult(){
+   window.location.reload();
+ }
+
+// Set the duration in seconds
+var duration = 30;
+
+// Create a countdown function
+function countdown() {
+  // Display the remaining time
+  document.getElementById("time").innerHTML=(duration + " seconds remaining");
+
+  // Check if the time is up
+  if (duration <= 0) {
+    clearInterval(timer); // Stop the timer
+    calculateScore();
+
+    
+  }
+
+  // Decrease the duration by 1 second
+  duration--;
+}
+
+// Start the countdown
+var timer = setInterval(countdown, 1000); // Update every second (1000 milliseconds)
+
+ 
+
+
+
+
+
+
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
   // Basic ideas from https://code-boxx.com/simple-javascript-quiz/
@@ -70,6 +105,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     </ul>
                     <div>&nbsp;</div>`;
       quizWrap.innerHTML = quizDisplay;
+      
+      
     });
   };
 
@@ -89,9 +126,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
       
 
-        if (radioElement.checked&& quizItem.a == i) {
+        if ((radioElement.checked&& quizItem.a == i) || (duration == 0 && quizItem.a == i)) {
           liElement.style.backgroundColor="green";
           score++;
+          clearInterval(timer);
         }
       }
     });
@@ -101,5 +139,9 @@ window.addEventListener('DOMContentLoaded', () => {
   // call the displayQuiz function
   displayQuiz();
  document.getElementById("btnSubmit").addEventListener('click',calculateScore);
+ document.getElementById("btnReset").addEventListener('click',clearResult);
+ document.getElementById("Start").addEventListener('click',countdown);
+
 });
+
 
