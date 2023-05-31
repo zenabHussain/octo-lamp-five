@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
  }
 
 // Set the duration in seconds
-var duration = 30;
+var duration = 60;
 
 // Create a countdown function
 function countdown() {
@@ -81,7 +81,7 @@ var timer = setInterval(countdown, 1000); // Update every second (1000 milliseco
     },
     {
       q: 'What is the biggest airport in the world?',
-      o: ['Dubai', 'oman', 'Doha', 'America'],
+      o: ['Dubai', 'oman', 'Doha', 'Melbourne'],
       a: 0,
     },
     {
